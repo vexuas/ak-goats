@@ -1,0 +1,34 @@
+.yagi-servercard {
+  width: 48%;
+  margin: auto;
+  margin-top: 6px;
+  margin-bottom: 2%;
+  position: relative;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.yagi-serverName {
+  color: white;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 3rem;
+  transition: color 0.3s linear;
+}
+.serverCardImg {
+  object-fit: cover;
+  width: 100%;
+  height: 85%;
+  border-radius: 15px 15px 15px 15px;
+  transition: transform 0.2s cubic-bezier(0, 0, 0, 2.2), filter 0.2s linear;
+  filter: grayscale(100%);
+}
+
+.yagi-servercard:hover .serverCardImg {
+  transform: scale(1.018);
+  filter: none;
+}
+.yagi-servercard:hover .yagi-serverName {
+  color: #fe5c5c;
+}

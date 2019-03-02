@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "Digital Dismay";
+  src: url("./Digital\ Dismay.otf");
+}
+
+.yagi-timerTemplate {
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  margin: 5% 5%;
+  text-align: center;
+  background-color: #202124;
+}
+.yagi-timerContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background-color: rgb(24, 20, 20);
+  border-radius: 10px 10px 10px 10px;
+  letter-spacing: 3px;
+  font-family: "Digital Dismay";
+  font-size: 6.8vw;
+  padding: 5px 1.5% 5px 2%;
+}
+.yagi-timerCountdown {
+  grid-area: 1/1/1/1;
+  color: #33ff33;
+  z-index: 1;
+}
+.yagi-timerBg {
+  grid-area: 1/1/1/1;
+  position: relative;
+  color: #404040;
+  opacity: 0.3;
+}

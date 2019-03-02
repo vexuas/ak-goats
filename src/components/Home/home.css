@@ -1,0 +1,9 @@
+.yagi-content {
+  margin: 50px 8%;
+}
+.yagi-partition {
+  margin: 100px 100px;
+  height: 5px;
+  background-color: #fe5c5c;
+  border-radius: 3px 3px 3px 3px;
+}
