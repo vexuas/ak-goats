@@ -1,8 +1,8 @@
 .yagi-servercard {
   width: 48%;
   margin: auto;
-  margin-top: 6px;
-  margin-bottom: 2%;
+  margin-top: 0px;
+  margin-bottom: 50px;
   position: relative;
   box-sizing: border-box;
 }
@@ -31,4 +31,10 @@ a {
 }
 .yagi-servercard:hover .yagi-serverName {
   color: #fe5c5c;
+}
+
+@media only screen and (max-width: 800px) {
+  .yagi-servercard {
+    width: 100%;
+  }
 }

@@ -9,7 +9,6 @@
   justify-content: center;
   margin: 5% 5%;
   text-align: center;
-  background-color: #202124;
 }
 .yagi-timerContainer {
   display: grid;
@@ -32,4 +31,12 @@
   position: relative;
   color: #404040;
   opacity: 0.3;
+}
+
+@media only screen and (max-width: 800px) {
+  .yagi-timerContainer {
+    font-size: 5rem;
+    padding: 5px 2% 5px 2.5%;
+    margin: 20px 0px;
+  }
 }

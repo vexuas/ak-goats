@@ -9,8 +9,14 @@ class Home extends Component {
       <div>
         <Header timerName="Home" color={{ color: "#fe5c5c" }} />
         <main className="yagi-content">
-          <GoatServers />
+          <div className="yagi-title">
+            <div id="yagi-AK">Aura Kingdom</div>
+            <div id="yagi-WB">
+              • Vulture's Vale & Blizzard Berg World Boss Timers •
+            </div>
+          </div>
           <div className="yagi-partition" />
+          <GoatServers />
         </main>
       </div>
     );

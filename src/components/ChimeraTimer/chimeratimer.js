@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Countdown from "../Countdown/countdown";
-import { getServerTime, getserverTimeinMilliseconds } from "../Header/header";
+import { getserverTimeinMilliseconds } from "../Header/header";
 
 class ChimeraTimer extends Component {
   constructor(props) {
@@ -21,12 +21,17 @@ class ChimeraTimer extends Component {
       .then(response => {
         const times = response.responseData;
         let countString = times[3];
+        if (countString === "#VALUE") {
+          this.setState({
+            countdown: "To Be Announced",
+            timerBg: "To Be Announced",
+            font: "Open Sans Condensed"
+          });
+        }
         countString = countString.replace(/:/g, ",");
         countString = countString.replace("AM", "");
         countString = countString.replace("PM", "");
         const countArray = countString.split(",").map(Number);
-        let nextSpawn = `${times[0].toLowerCase()}, ${times[3]}`;
-        let timeofSpawn = times[3];
         if (times[3].includes("PM") && times[3].includes("12") === false) {
           countArray[0] += 12;
         }
@@ -59,12 +64,6 @@ class ChimeraTimer extends Component {
           );
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
-          nextSpawn = `${times[0].toLowerCase()}, ${countArray[0] + 4}:${
-            countArray[1]
-          }:${countArray[2]} ${countArray[0] > 12 ? "PM" : "AM"}`;
-          timeofSpawn = `${countArray[0] + 4}:${countArray[1]}:${
-            countArray[2]
-          } ${countArray[0] > 12 ? "PM" : "AM"}`;
         }
         if (diff > 86400000) {
           countArray[0] -= 4;
@@ -83,7 +82,7 @@ class ChimeraTimer extends Component {
           this.setState({
             countdown: "Hunt in Progress",
             timerBg: "Hunt in Progress",
-            font: "Open Sans Condensed, sans-serif"
+            font: "Open Sans Condensed"
           });
         }
         if (diff > 0) {
@@ -92,7 +91,7 @@ class ChimeraTimer extends Component {
           );
           const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
           const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-          const hour = ("000" + hours).substr(-2);
+          const hour = ("00" + hours).substr(-2);
           const minute = ("00" + minutes).substr(-2);
           const second = ("00" + seconds).substr(-2);
           const countdown = `${hour}:${minute}:${second}`;
@@ -102,7 +101,7 @@ class ChimeraTimer extends Component {
             font: null
           });
         }
-      }, 1000);
+      });
   }
   chimeraCountdown() {
     this.getChimeraTimes();

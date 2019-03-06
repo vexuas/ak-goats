@@ -1,9 +1,28 @@
 .yagi-content {
-  margin: 50px 8%;
+  margin: 50px 5%;
 }
 .yagi-partition {
-  margin: 100px 100px;
+  margin: 80px 5%;
   height: 5px;
   background-color: #fe5c5c;
   border-radius: 3px 3px 3px 3px;
+}
+.yagi-title {
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  font-family: "Open Sans Condensed";
+  color: #fe5c5c;
+}
+#yagi-AK {
+  width: 100%;
+  color: white;
+  font-size: 5rem;
+}
+#yagi-WB {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 3rem;
 }

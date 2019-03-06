@@ -1,0 +1,13 @@
+.yagi-phoenixCard {
+  width: 48%;
+  margin: auto;
+  position: relative;
+  cursor: default;
+}
+
+@media only screen and (max-width: 800px) {
+  .yagi-phoenixCard {
+    width: 100%;
+    margin-top: 30px;
+  }
+}

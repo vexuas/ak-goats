@@ -5,18 +5,18 @@
       "id": 0,
       "responseData": [
         "V1",
-        "n",
-        "1:10:05 AM",
-        "5:10:05 AM"
+        "",
+        "1:04:39 PM",
+        "5:04:39 PM"
       ]
     },
     {
       "description": "Phoenix Timer",
       "id": 1,
       "responseData": [
-        "VV2",
-        "1",
-        ":30:42"
+        "VV1",
+        "5",
+        ":28:53"
       ]
     }
   ]

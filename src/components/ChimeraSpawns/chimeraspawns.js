@@ -30,10 +30,17 @@ class ChimeraSpawns extends Component {
       .then(response => response.json())
       .then(response => {
         const info = response.responseData;
-        this.setState({
-          spawnMap: maps[info[0]],
-          spawnTime: info[3]
-        });
+        if (info[3] === "#VALUE") {
+          this.setState({
+            spawnMap: "TBA",
+            spawnTime: "TBA"
+          });
+        } else {
+          this.setState({
+            spawnMap: maps[info[0]],
+            spawnTime: info[3]
+          });
+        }
       });
   }
   render() {
