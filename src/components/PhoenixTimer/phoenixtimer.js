@@ -48,7 +48,6 @@ class PhoenixTimer extends Component {
         let countString = times[1] + times[2];
         countString = countString.replace(/:/g, ",");
         let countArray = countString.split(",").map(Number);
-        console.log(countString);
         const gameTime = getserverTimeinMilliseconds();
         const count = new Date(gameTime);
         let timein24 = count.toLocaleTimeString("en-US", {
@@ -84,7 +83,6 @@ class PhoenixTimer extends Component {
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
           timeofday = "PM";
-          console.log("hello");
         }
         if (diff < 0 && time24[0] === 12) {
           countArray[0] += 12;
@@ -99,7 +97,6 @@ class PhoenixTimer extends Component {
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
           timeofday = "AM";
-          console.log("24");
         }
         if (diff < 0 && getServerTime().includes("PM") && time24[0] > 20) {
           countertime = new Date(
@@ -113,7 +110,6 @@ class PhoenixTimer extends Component {
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
           timeofday = "AM";
-          console.log("hm");
         }
         if (diff < 0 && time24[0] + 4 > 11) {
           countArray[0] += 12;
@@ -128,7 +124,6 @@ class PhoenixTimer extends Component {
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
           timeofday = "AM";
-          console.log("hmm");
         }
         if (diff > 14400000) {
           countArray[0] -= 8;
@@ -144,8 +139,6 @@ class PhoenixTimer extends Component {
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
           timeofday = "PM";
-          console.log("hi");
-          console.log(countArray[0]);
         }
         if (diff > 86400000) {
           countArray[4] += 4;
