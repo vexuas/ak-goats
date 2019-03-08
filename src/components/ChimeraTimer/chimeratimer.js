@@ -6,17 +6,17 @@ class ChimeraTimer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      countdown: "00:00:00",
+      countdown: "Loading",
       nextSpawn: null,
       timerHour: null,
       timerMin: null,
       timerSec: null,
-      timerBg: "88:88:88",
+      timerBg: "Loading",
       font: null
     };
   }
   getChimeraTimes() {
-    fetch("http://localhost:3001/times/0")
+    fetch("https://ak-goats-api.herokuapp.com/times/0")
       .then(response => response.json())
       .then(response => {
         const times = response.responseData;

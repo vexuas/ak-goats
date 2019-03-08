@@ -30,8 +30,7 @@ setInterval(() => {
       });
 
       const options = {
-        host: "localhost",
-        port: 3001,
+        host: "ak-goats-api.herokuapp.com",
         path: "/times/0",
         method: "PUT",
         headers: {

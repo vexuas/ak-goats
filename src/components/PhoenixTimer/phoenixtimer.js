@@ -31,17 +31,17 @@ class PhoenixTimer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      countdown: "00:00:00",
+      countdown: "Loading",
       nextSpawn: null,
       timerHour: null,
       timerMin: null,
       timerSec: null,
-      timerBg: "88:88:88",
+      timerBg: "Loading",
       font: null
     };
   }
   getPhoenixTimes() {
-    fetch("http://localhost:3001/times/1")
+    fetch("https://ak-goats-api.herokuapp.com/times/1")
       .then(response => response.json())
       .then(response => {
         const times = response.responseData;
@@ -88,6 +88,17 @@ class PhoenixTimer extends Component {
         }
         if (diff < 0 && time24[0] === 12) {
           countArray[0] += 12;
+          countertime = new Date(
+            count.getFullYear(),
+            count.getMonth(),
+            count.getDate(),
+            countArray[0],
+            countArray[1],
+            countArray[2]
+          );
+          countTime = countertime.getTime();
+          diff = parseInt(countTime - gameTime);
+          timeofday = "AM";
           console.log("24");
         }
         if (diff < 0 && getServerTime().includes("PM") && time24[0] > 20) {
@@ -117,7 +128,7 @@ class PhoenixTimer extends Component {
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
           timeofday = "AM";
-          console.log("hm");
+          console.log("hmm");
         }
         if (diff > 14400000) {
           countArray[0] -= 8;

@@ -31,12 +31,12 @@ class PhoenixSpawns extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      spawnMap: null,
-      spawnTime: null
+      spawnMap: "Loading",
+      spawnTime: "Loading"
     };
   }
   getPhoenixInfo() {
-    fetch("http://localhost:3001/times/1")
+    fetch("https://ak-goats-api.herokuapp.com/times/1")
       .then(response => response.json())
       .then(response => {
         const info = response.responseData;
