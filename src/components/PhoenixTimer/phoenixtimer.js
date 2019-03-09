@@ -98,7 +98,7 @@ class PhoenixTimer extends Component {
           diff = parseInt(countTime - gameTime);
           timeofday = "AM";
         }
-        if (diff < 0 && getServerTime().includes("PM") && time24[0] > 20) {
+        if (diff < 0 && getServerTime().includes("PM") && time24[0] > 21) {
           countertime = new Date(
             count.getFullYear(),
             count.getMonth(),
