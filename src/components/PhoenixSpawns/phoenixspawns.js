@@ -62,7 +62,6 @@ class PhoenixSpawns extends Component {
   }
   render() {
     this.getPhoenixInfo();
-    console.log(this.state.spawnMap);
     let spawnInfo = [
       {
         id: 0,
