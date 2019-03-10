@@ -46,6 +46,13 @@ class PhoenixTimer extends Component {
       .then(response => {
         const times = response.responseData;
         let countString = times[1] + times[2];
+        if (times[1] === "U") {
+          return this.setState({
+            countdown: "To Be Announced",
+            timerBg: "To Be Announced",
+            font: "Open Sans Condensed"
+          });
+        }
         countString = countString.replace(/:/g, ",");
         let countArray = countString.split(",").map(Number);
         const gameTime = getserverTimeinMilliseconds();

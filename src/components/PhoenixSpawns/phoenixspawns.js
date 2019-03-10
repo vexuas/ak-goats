@@ -47,7 +47,7 @@ class PhoenixSpawns extends Component {
             spawnTime: "TBA"
           });
         }
-        if (nextSpawn >= 12) {
+        if (info[1] !== "U" && nextSpawn >= 12) {
           this.setState({
             spawnMap: maps[info[0]],
             spawnTime: `${info[1] + info[2]} PM`
@@ -62,6 +62,7 @@ class PhoenixSpawns extends Component {
   }
   render() {
     this.getPhoenixInfo();
+    console.log(this.state.spawnMap);
     let spawnInfo = [
       {
         id: 0,
