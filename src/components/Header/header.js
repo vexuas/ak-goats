@@ -13,7 +13,7 @@ weekday[6] = "Saturday";
 export function getserverTimeinMilliseconds() {
   const d = new Date();
   const utc = d.getTime() + d.getTimezoneOffset() * 60000;
-  const offset = -5;
+  const offset = -4;
   const gameTime = utc + 3600000 * offset;
   return gameTime;
 }
