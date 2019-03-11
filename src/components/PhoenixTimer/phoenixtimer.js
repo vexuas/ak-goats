@@ -73,12 +73,8 @@ class PhoenixTimer extends Component {
         );
         let countTime = countertime.getTime();
         let diff = parseInt(countTime - gameTime);
-        let timeofday = "AM";
-        let ampmstring = countArray[0].toString();
-
-        if (diff < 0 && time24[0] + 4 < 12) {
-          countArray[0] += 12;
-          ampmstring = countArray[0].toString();
+        //daytime cycle
+        if (time24[0] > 3 && time24[0] + 4 < 12) {
           countertime = new Date(
             count.getFullYear(),
             count.getMonth(),
@@ -89,9 +85,9 @@ class PhoenixTimer extends Component {
           );
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
-          timeofday = "PM";
         }
-        if (diff < 0 && time24[0] === 12) {
+        //evening cycle
+        if (time24[0] + 4 > 11 && time24[0] + 4 < 24) {
           countArray[0] += 12;
           countertime = new Date(
             count.getFullYear(),
@@ -103,9 +99,14 @@ class PhoenixTimer extends Component {
           );
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
-          timeofday = "AM";
+          console.log(countArray[0]);
         }
-        if (diff < 0 && getServerTime().includes("PM") && time24[0] > 21) {
+        if (time24[0] + 4 > 23) {
+          time24[0] -= 24;
+        }
+        //switching to next day
+        if (time24[0] + 4 < 4) {
+          console.log(time24[0]);
           countertime = new Date(
             count.getFullYear(),
             count.getMonth(),
@@ -116,51 +117,6 @@ class PhoenixTimer extends Component {
           );
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
-          timeofday = "AM";
-        }
-        if (diff < 0 && time24[0] + 4 > 11) {
-          countArray[0] += 12;
-          countertime = new Date(
-            count.getFullYear(),
-            count.getMonth(),
-            count.getDate(),
-            countArray[0],
-            countArray[1],
-            countArray[2]
-          );
-          countTime = countertime.getTime();
-          diff = parseInt(countTime - gameTime);
-          timeofday = "AM";
-        }
-        if (diff > 14400000) {
-          countArray[0] -= 8;
-          ampmstring = countArray[0].toString();
-          countertime = new Date(
-            count.getFullYear(),
-            count.getMonth(),
-            count.getDate() + 1,
-            countArray[0],
-            countArray[1],
-            countArray[2]
-          );
-          countTime = countertime.getTime();
-          diff = parseInt(countTime - gameTime);
-          timeofday = "PM";
-        }
-        if (diff > 86400000) {
-          countArray[4] += 4;
-          ampmstring = countArray[0].toString();
-          countertime = new Date(
-            count.getFullYear(),
-            count.getMonth(),
-            count.getDate(),
-            ampm[countArray[0]],
-            countArray[1],
-            countArray[2]
-          );
-          countTime = countertime.getTime();
-          diff = parseInt(countTime - gameTime);
-          timeofday = "AM";
         }
         if (diff < 0) {
           this.setState({

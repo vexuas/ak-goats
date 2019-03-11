@@ -52,7 +52,10 @@ class PhoenixSpawns extends Component {
             spawnMap: maps[info[0]],
             spawnTime: `${info[1] + info[2]} PM`
           });
-        } else if (nextSpawn < 12 || nextSpawn >= 24) {
+        } else if (
+          (info[1] !== "U" && nextSpawn < 12) ||
+          (info[1] !== "U" && nextSpawn >= 24)
+        ) {
           this.setState({
             spawnMap: maps[info[0]],
             spawnTime: `${info[1] + info[2]} AM`
