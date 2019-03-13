@@ -73,9 +73,8 @@ class PhoenixTimer extends Component {
         );
         let countTime = countertime.getTime();
         let diff = parseInt(countTime - gameTime);
-        console.log(countArray[0]);
         //daytime cycle
-        if (time24[0] > 3 && time24[0] < 12 && countArray[0] < 12) {
+        if (time24[0] < 12 && countArray[0] - time24[0] > 0) {
           countertime = new Date(
             count.getFullYear(),
             count.getMonth(),
@@ -88,7 +87,7 @@ class PhoenixTimer extends Component {
           diff = parseInt(countTime - gameTime);
         }
         //evening cycle
-        if (time24[0] > 11 && time24[0] < 24 && countArray[0] < 12) {
+        if (time24[0] > 11 && time24[0] < 24 && countArray[0] - time24[0] < 0) {
           countArray[0] += 12;
           countertime = new Date(
             count.getFullYear(),
@@ -100,14 +99,9 @@ class PhoenixTimer extends Component {
           );
           countTime = countertime.getTime();
           diff = parseInt(countTime - gameTime);
-          console.log(countArray[0]);
-        }
-        if (time24[0] + 4 > 23 && countArray[0] < 24) {
-          time24[0] -= 24;
         }
         //switching to next day
-        if (time24[0] < 4) {
-          console.log(time24[0]);
+        if (time24[0] + 4 > 23 && countArray[0] - time24[0] < 0) {
           countertime = new Date(
             count.getFullYear(),
             count.getMonth(),

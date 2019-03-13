@@ -47,14 +47,20 @@ class PhoenixSpawns extends Component {
             spawnTime: "TBA"
           });
         }
-        if (info[1] !== "U" && nextSpawn >= 12 && info[1] >= 12) {
+        if (
+          (info[1] !== "U" && info[1] - nextSpawn < 0) ||
+          (info[1] !== "U" && nextSpawn >= 12)
+        ) {
           this.setState({
             spawnMap: maps[info[0]],
             spawnTime: `${info[1] + info[2]} PM`
           });
         } else if (
-          (info[1] !== "U" && nextSpawn < 12 && info[1] < 12) ||
-          (info[1] !== "U" && nextSpawn >= 24 && info[1] >= 24)
+          (info[1] !== "U" && nextSpawn < 12 && info[1] - nextSpawn > 0) ||
+          (info[1] !== "U" &&
+            nextSpawn >= 24 &&
+            info[1] >= 24 &&
+            info[1] - nextSpawn > 0)
         ) {
           this.setState({
             spawnMap: maps[info[0]],
