@@ -25,7 +25,7 @@ function getServerTime24() {
   });
   timein24 = timein24.replace(/:/g, ",");
   const time24 = timein24.split(",").map(Number);
-  return (time24[0] += 4);
+  return time24[0];
 }
 class PhoenixSpawns extends Component {
   constructor(props) {
@@ -47,14 +47,14 @@ class PhoenixSpawns extends Component {
             spawnTime: "TBA"
           });
         }
-        if (info[1] !== "U" && nextSpawn >= 12) {
+        if (info[1] !== "U" && nextSpawn >= 12 && info[1] >= 12) {
           this.setState({
             spawnMap: maps[info[0]],
             spawnTime: `${info[1] + info[2]} PM`
           });
         } else if (
-          (info[1] !== "U" && nextSpawn < 12) ||
-          (info[1] !== "U" && nextSpawn >= 24)
+          (info[1] !== "U" && nextSpawn < 12 && info[1] < 12) ||
+          (info[1] !== "U" && nextSpawn >= 24 && info[1] >= 24)
         ) {
           this.setState({
             spawnMap: maps[info[0]],
