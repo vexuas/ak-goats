@@ -40,6 +40,7 @@ class PhoenixSpawns extends Component {
       .then(response => response.json())
       .then(response => {
         const info = response.responseData;
+        console.log(info[1]);
         const nextSpawn = getServerTime24();
         if (info[1] === "U") {
           this.setState({
@@ -56,7 +57,7 @@ class PhoenixSpawns extends Component {
             spawnTime: `${info[1] + info[2]} PM`
           });
         } else if (
-          (info[1] !== "U" && nextSpawn < 12 && info[1] - nextSpawn > 0) ||
+          (info[1] !== "U" && nextSpawn < 12 && info[1] - nextSpawn >= 0) ||
           (info[1] !== "U" &&
             nextSpawn >= 24 &&
             info[1] >= 24 &&

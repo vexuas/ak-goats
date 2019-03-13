@@ -74,7 +74,7 @@ class PhoenixTimer extends Component {
         let countTime = countertime.getTime();
         let diff = parseInt(countTime - gameTime);
         //daytime cycle
-        if (time24[0] < 12 && countArray[0] - time24[0] > 0) {
+        if (time24[0] < 12 && countArray[0] - time24[0] >= 0) {
           countertime = new Date(
             count.getFullYear(),
             count.getMonth(),
