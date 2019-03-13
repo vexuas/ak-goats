@@ -87,7 +87,7 @@ class PhoenixTimer extends Component {
           diff = parseInt(countTime - gameTime);
         }
         //evening cycle
-        if (time24[0] > 11 && time24[0] < 24 && countArray[0] - time24[0] < 0) {
+        if (time24[0] < 24 && countArray[0] - time24[0] < 0) {
           countArray[0] += 12;
           countertime = new Date(
             count.getFullYear(),
