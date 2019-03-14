@@ -32,7 +32,7 @@ class ChimeraTimer extends Component {
         countString = countString.replace("AM", "");
         countString = countString.replace("PM", "");
         const countArray = countString.split(",").map(Number);
-        if (times[3].includes("PM") && times[3].includes("12") === false) {
+        if (times[3].includes("PM")) {
           countArray[0] += 12;
         }
 
