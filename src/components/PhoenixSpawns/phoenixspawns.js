@@ -48,20 +48,14 @@ class PhoenixSpawns extends Component {
             spawnTime: "TBA"
           });
         }
-        if (
-          (info[1] !== "U" && info[1] - nextSpawn < 0) ||
-          (info[1] !== "U" && nextSpawn >= 12)
-        ) {
+        if (info[1] !== "U" && info[1] - nextSpawn < 0 && nextSpawn < 24) {
           this.setState({
             spawnMap: maps[info[0]],
             spawnTime: `${info[1] + info[2]} PM`
           });
         } else if (
-          (info[1] !== "U" && nextSpawn < 12 && info[1] - nextSpawn >= 0) ||
-          (info[1] !== "U" &&
-            nextSpawn >= 24 &&
-            info[1] >= 24 &&
-            info[1] - nextSpawn > 0)
+          (info[1] !== "U" && info[1] - nextSpawn >= 0) ||
+          (info[1] !== "U" && nextSpawn + 4 >= 24 && info[1] - nextSpawn < 0)
         ) {
           this.setState({
             spawnMap: maps[info[0]],
@@ -69,6 +63,11 @@ class PhoenixSpawns extends Component {
           });
         }
       });
+  }
+  componentDidMount() {
+    setInterval(() => {
+      this.getPhoenixInfo();
+    }, 10000);
   }
   render() {
     this.getPhoenixInfo();
