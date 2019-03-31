@@ -4,18 +4,22 @@ import { getserverTimeinMilliseconds } from "../Header/header";
 import "./phoenixspawns.css";
 
 const maps = {
-  VV1: "Vulture's Vale Ch. 1",
-  VV2: "Vulture's Vale Ch. 2",
-  VV3: "Vulture's Vale Ch. 3",
-  VV4: "Vulture's Vale Ch. 4",
-  VV5: "Vulture's Vale Ch. 5",
-  VV6: "Vulture's Vale Ch. 6",
+  VV1: "Vulture's Vale Ch.1",
+  VV2: "Vulture's Vale Ch.2",
+  VV3: "Vulture's Vale Ch.3",
+  VV4: "Vulture's Vale Ch.4",
+  VV5: "Vulture's Vale Ch.5",
+  VV6: "Vulture's Vale Ch.6",
+  VV7: "Vulture's Vale Ch.7",
+  VV8: "Vulture's Vale Ch.8",
   BB1: "Blizzard Berg Ch.1",
   BB2: "Blizzard Berg Ch.2",
   BB3: "Blizzard Berg Ch.3",
   BB4: "Blizzard Berg Ch.4",
   BB5: "Blizzard Berg Ch.5",
-  BB6: "Blizzard Berg Ch.6"
+  BB6: "Blizzard Berg Ch.6",
+  BB7: "Blizzard Berg Ch.7",
+  BB8: "Blizzard Berg Ch.8"
 };
 
 function getServerTime24() {
